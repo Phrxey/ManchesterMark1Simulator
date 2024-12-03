@@ -1,0 +1,17 @@
+;Adding two numbers together to test cmp and jmp
+VAR 0       ; Declare 32-bit variable to fill space 
+
+START:    LDN NUM01   ; Load the negated value of NUM01 into the accumulator
+          SUB NUM02   ; Subtract NUM02 from the accumulator (accumulator += NUM01 - NUM02)
+          STO MYSUM   ; Store the result (accumulator) into MYSUM
+          
+          LDN MYSUM   ; Load the negated result of MYSUM into the accumulator
+          STO MYSUM   ; Store the negated result back to MYSUM
+
+          CMP         ; If the value in the accumulator is negative, skip the next instruction
+          JMP END     ; Jump to END if CMP indicates a negative result
+END:      STP         ; Stop the program
+
+NUM01:    VAR 15      ; Declare NUM01 with the value 15
+NUM02:    VAR 10      ; Declare NUM02 with the value 10
+MYSUM:    VAR 0       ; Declare MYSUM for storing the result

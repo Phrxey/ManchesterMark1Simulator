@@ -1,0 +1,12 @@
+;Counting down from 10 to -1 in the accumulator
+                VAR 0       ; Declare space for a counter variable
+START:     LDN COUNTER ; Load the current counter value into the accumulator
+LOOP:       SUB ONE ; Subtract 1 from the current counter (equivalent to adding 1)
+                STO COUNTER ; Store the new counter value back to COUNTER
+                 CMP         ; Check if the counter is < 0
+                JMP LOOP; Loop back to LOOP
+                JMP END;
+END:         STP         ; Stop the program
+
+COUNTER:  VAR -10       ; Declare counter variable (starts at -10)
+ONE:      VAR 1       ; Declare constant 1

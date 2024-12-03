@@ -1,0 +1,16 @@
+;To test direct addressing, the last two lines should read 2, -2, -8.
+VAR 0       ; Declare space for a counter variable
+START:	LDN COUNTER ; 0
+	SUB ONE ; +2
+	STO COUNTER ; 2
+	JRP COUNTER ; 
+JMP END ; Test jrp is right
+	SUB #10; -8
+STO 13;
+LDP ONE; 1
+STO ONE; 1
+END:	STP ; Stop the program
+
+COUNTER:  VAR 0       ; Declare counter variable (starts at -10)   2
+ONE:      VAR -2       ; Declare constant 1   -2
+STOT:      VAR 0       ; test sto   -8
